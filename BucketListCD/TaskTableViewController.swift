@@ -21,12 +21,24 @@ class TaskTableViewController: UITableViewController, CLLocationManagerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Text View Style
+        self.descriptionTextField.layer.cornerRadius = 5
+        self.descriptionTextField.layer.borderWidth = 1
+        self.descriptionTextField.layer.borderColor = UIColor.purpleColor().CGColor
+        
         // Setting the delegate to this class so we can call the appropriate methods
         self.descriptionTextField.delegate = self
         
         if self.taskEntity.about != nil {
-            self.descriptionTextField.text = taskEntity.description
+            self.descriptionTextField.text = taskEntity.about
         }
+        
+        // Gestures
+        let tapGesture = UITapGestureRecognizer(target: self, action: "tapGestureSelector:")
+        self.tableView.addGestureRecognizer(tapGesture)
+        
+        // The Nav bar info
+        self.navigationItem.prompt = self.taskEntity.name
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -39,10 +51,20 @@ class TaskTableViewController: UITableViewController, CLLocationManagerDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
-    func textViewDidBeginEditing(textView: UITextView) {
-        self.taskEntity.about = textView.text
+    func textViewDidEndEditing(textView: UITextView) {
+        self.taskEntity.about = self.descriptionTextField.text
+        self.bucket.saveEntities()
+        self.descriptionTextField.resignFirstResponder()
     }
+    
+    func tapGestureSelector(gestureRecognizer: UIGestureRecognizer) {
+        //print("Touches began in table view")
+        self.tableView.endEditing(true)
+    }
+    
+    
 
     // MARK: - Table view data source
 

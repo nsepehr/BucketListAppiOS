@@ -14,6 +14,9 @@ class HomeTableViewController: UITableViewController {
     var bucket = BucketList()
     let cellIdentifier = "TaskCell"
     
+    // Segues ID's
+    let toTaskDetailView = "ToTaskView"
+    
     // Date Formatter
     let dateFormat: NSDateFormatterStyle = .ShortStyle
     var createDateFormat: NSDateFormatter {
@@ -91,10 +94,21 @@ class HomeTableViewController: UITableViewController {
         print("I unwinded, but canceled task")
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let taskEntity: TaskEntity = self.bucket.entityList[indexPath.row]
+        performSegueWithIdentifier(toTaskDetailView, sender: taskEntity)
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == self.toTaskDetailView {
+            let tvc = segue.destinationViewController as! TaskTableViewController
+            let taskEntity: TaskEntity = sender as! TaskEntity
+            tvc.taskEntity = taskEntity
+            tvc.bucket = self.bucket
+        }
     }
 
 

@@ -45,6 +45,7 @@ class AddTaskViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("Touches began in add task")
         self.view.endEditing(true)
     }
     
