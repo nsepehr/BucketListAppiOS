@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    //let data = MyData()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -41,11 +42,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
+        //self.saveContext()
+        /*do {
+            try self.data.saveEntities()
+        } catch let error as NSError {
+            NSLog("Failed to save entities \(error)")
+        } catch {
+            NSLog("Failed to save data: uknown reason")
+        }
+        */
     }
 
     // MARK: - Core Data stack
-
+    
+    /*
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.nimasepehr.BucketListCD" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
@@ -106,6 +116,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    */
+
 
 }
 
