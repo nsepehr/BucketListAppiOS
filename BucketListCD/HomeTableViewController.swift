@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeTableViewController: UITableViewController {
+class HomeTableViewController: UITableViewController, HomeTableDelegate {
     
     // Task Data related
     var bucket = BucketList()
@@ -108,7 +108,16 @@ class HomeTableViewController: UITableViewController {
             let taskEntity: TaskEntity = sender as! TaskEntity
             tvc.taskEntity = taskEntity
             tvc.bucket = self.bucket
+            tvc.delegate = self
         }
+    }
+    
+    // MARK: - HomeTableDelegate Protocols
+    func updateHomeCellImage(forTask: TaskEntity) {
+        let itemOrder = forTask.displayOrder as! Int
+        print("my item order is \(itemOrder)")
+        let indexPath = NSIndexPath(forItem: itemOrder-1, inSection: 0)
+        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
     }
 
 

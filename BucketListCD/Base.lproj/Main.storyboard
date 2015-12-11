@@ -247,6 +247,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3px-Du-pnA">
                                                     <rect key="frame" x="505" y="14" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="statusButtonChanged:" destination="vmN-ze-PnX" eventType="valueChanged" id="9N1-Ow-fMN"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -337,6 +340,7 @@
                     </tableView>
                     <connections>
                         <outlet property="descriptionTextField" destination="Bb5-up-bsv" id="92o-Gl-ixt"/>
+                        <outlet property="statusButton" destination="3px-Du-pnA" id="LAy-LH-6pl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94T-k1-B4S" userLabel="First Responder" sceneMemberID="firstResponder"/>

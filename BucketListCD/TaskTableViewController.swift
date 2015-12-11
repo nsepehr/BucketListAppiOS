@@ -10,13 +10,26 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol HomeTableDelegate {
+    
+    func updateHomeCellImage (forTask: TaskEntity)
+}
+
 
 class TaskTableViewController: UITableViewController, CLLocationManagerDelegate, UISearchBarDelegate, UITextViewDelegate {
     
     var taskEntity: TaskEntity!
     var bucket: BucketList<TaskEntity>!
+    var delegate: HomeTableDelegate?
     
     @IBOutlet weak var descriptionTextField: UITextView!
+    @IBOutlet weak var statusButton: UISwitch!
+    
+    @IBAction func statusButtonChanged(sender: AnyObject) {
+        self.taskEntity.completed = self.statusButton.on
+        self.bucket.saveEntities()
+        self.delegate?.updateHomeCellImage(taskEntity)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +42,13 @@ class TaskTableViewController: UITableViewController, CLLocationManagerDelegate,
         // Setting the delegate to this class so we can call the appropriate methods
         self.descriptionTextField.delegate = self
         
+        // Set the task values if defined
         if self.taskEntity.about != nil {
             self.descriptionTextField.text = taskEntity.about
+            self.bucket.saveEntities()
         }
+        
+        self.statusButton.on = self.taskEntity.completed
         
         // Gestures
         let tapGesture = UITapGestureRecognizer(target: self, action: "tapGestureSelector:")
