@@ -115,7 +115,7 @@ class HomeTableViewController: UITableViewController, HomeTableDelegate {
     // MARK: - HomeTableDelegate Protocols
     func updateHomeCellImage(forTask: TaskEntity) {
         let itemOrder = forTask.displayOrder as! Int
-        print("my item order is \(itemOrder)")
+        //print("my item order is \(itemOrder)")
         let indexPath = NSIndexPath(forItem: itemOrder-1, inSection: 0)
         self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
     }

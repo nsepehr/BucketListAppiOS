@@ -24,6 +24,7 @@
 		D35AFC261C1933EA0014A7FE /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35AFC251C1933EA0014A7FE /* TaskTableViewController.swift */; };
 		D35AFC281C1934B20014A7FE /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35AFC271C1934B20014A7FE /* HomeTableViewCell.swift */; };
 		D35AFC2A1C1964440014A7FE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35AFC291C1964440014A7FE /* MapKit.framework */; };
+		D35AFC2C1C1A77470014A7FE /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35AFC2B1C1A77470014A7FE /* LocationSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		D35AFC251C1933EA0014A7FE /* TaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
 		D35AFC271C1934B20014A7FE /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		D35AFC291C1964440014A7FE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D35AFC2B1C1A77470014A7FE /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				D35AFBEF1C17FD4D0014A7FE /* HomeTableViewController.swift */,
 				D35AFC111C1890820014A7FE /* AddTaskViewController.swift */,
 				D35AFC251C1933EA0014A7FE /* TaskTableViewController.swift */,
+				D35AFC2B1C1A77470014A7FE /* LocationSearchViewController.swift */,
 				D35AFBBF1C16C69F0014A7FE /* Main.storyboard */,
 				D35AFBC51C16C69F0014A7FE /* Assets.xcassets */,
 				D35AFBC71C16C69F0014A7FE /* LaunchScreen.storyboard */,
@@ -307,6 +310,7 @@
 				D35AFBEE1C16C74B0014A7FE /* DataHandler.swift in Sources */,
 				D35AFC281C1934B20014A7FE /* HomeTableViewCell.swift in Sources */,
 				D35AFBC41C16C69F0014A7FE /* BucketListCD.xcdatamodeld in Sources */,
+				D35AFC2C1C1A77470014A7FE /* LocationSearchViewController.swift in Sources */,
 				D35AFBF21C17FDC20014A7FE /* MyData.swift in Sources */,
 				D35AFC241C1928B60014A7FE /* TaskEntity.swift in Sources */,
 				D35AFBBC1C16C69F0014A7FE /* AppDelegate.swift in Sources */,

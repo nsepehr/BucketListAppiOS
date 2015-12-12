@@ -10,13 +10,20 @@ import UIKit
 import MapKit
 import CoreLocation
 
+let toLocationSearch = "ToLocationSearch"
+
+enum TaskTableCells: String {
+    case About, Status, Location, Memories
+}
+
 protocol HomeTableDelegate {
     
     func updateHomeCellImage (forTask: TaskEntity)
 }
 
 
-class TaskTableViewController: UITableViewController, CLLocationManagerDelegate, UISearchBarDelegate, UITextViewDelegate {
+
+class TaskTableViewController: UITableViewController, CLLocationManagerDelegate, UISearchBarDelegate, UITextViewDelegate, TaskTableDelegate {
     
     var taskEntity: TaskEntity!
     var bucket: BucketList<TaskEntity>!
@@ -24,6 +31,8 @@ class TaskTableViewController: UITableViewController, CLLocationManagerDelegate,
     
     @IBOutlet weak var descriptionTextField: UITextView!
     @IBOutlet weak var statusButton: UISwitch!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var locationLabel: UILabel!
     
     @IBAction func statusButtonChanged(sender: AnyObject) {
         self.taskEntity.completed = self.statusButton.on
@@ -52,10 +61,24 @@ class TaskTableViewController: UITableViewController, CLLocationManagerDelegate,
         
         // Gestures
         let tapGesture = UITapGestureRecognizer(target: self, action: "tapGestureSelector:")
+        tapGesture.cancelsTouchesInView = false
         self.tableView.addGestureRecognizer(tapGesture)
         
         // The Nav bar info
         self.navigationItem.prompt = self.taskEntity.name
+        
+        // Map view update
+        let myLatitude: Double? = taskEntity.locationLatitude
+        let myLongitude: Double? = taskEntity.locationLongitude
+        if myLatitude != 0 && myLongitude != 0 {
+            let myCoordinates: CLLocationCoordinate2D = CLLocationCoordinate2DMake(myLatitude!, myLongitude!)
+            let myLocation = MKPointAnnotation()
+            myLocation.coordinate = myCoordinates
+            myLocation.title = taskEntity.name
+            mapView.addAnnotation(myLocation)
+            self.setMapZoom(myLocation)
+            self.locationLabel.text = taskEntity.locationName
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -68,9 +91,12 @@ class TaskTableViewController: UITableViewController, CLLocationManagerDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    // MARK: - Table view data source
     
     func textViewDidEndEditing(textView: UITextView) {
+        print("Table editing ended")
         self.taskEntity.about = self.descriptionTextField.text
         self.bucket.saveEntities()
         self.descriptionTextField.resignFirstResponder()
@@ -81,9 +107,60 @@ class TaskTableViewController: UITableViewController, CLLocationManagerDelegate,
         self.tableView.endEditing(true)
     }
     
+    func updateLocationMap(forEntity: TaskEntity) {
+        // When user searches a location, this will update the update
+        print("User wants to update table for location \(forEntity.locationName) ")
+        let myLatitude: Double? = forEntity.locationLatitude
+        let myLongitude: Double? = forEntity.locationLongitude
+        if myLatitude != 0 && myLongitude != 0 {
+            let myCoordinates: CLLocationCoordinate2D = CLLocationCoordinate2DMake(myLatitude!, myLongitude!)
+            let myLocation = MKPointAnnotation()
+            myLocation.coordinate = myCoordinates
+            myLocation.title = forEntity.name
+            self.mapView.addAnnotation(myLocation)
+            self.setMapZoom(myLocation)
+            self.locationLabel.text = forEntity.locationName
+        }
+        
+        let indexPath: [NSIndexPath] = [
+            NSIndexPath(forItem: 0, inSection: TaskTableCells.Location.hashValue),
+            NSIndexPath(forItem: 1, inSection: TaskTableCells.Location.hashValue)
+        ]
+        self.tableView.reloadRowsAtIndexPaths(indexPath, withRowAnimation: UITableViewRowAnimation.None)
+    }
+    
+    func setMapZoom (annotation: MKPointAnnotation) -> () {
+        let altitudeDelta: CLLocationDegrees = 0.5
+        let longitudeDelta: CLLocationDegrees = 0.5
+        
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(altitudeDelta, longitudeDelta)
+        
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: annotation.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+    }
+    
     
 
-    // MARK: - Table view data source
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == toLocationSearch {
+            let tvc = segue.destinationViewController as! LocationSearchViewController
+            tvc.taskEntity = self.taskEntity
+            tvc.bucket = self.bucket
+            tvc.delegate = self
+        }
+    }
+    
+    @IBAction func unwindToTaskView(segue: UIStoryboardSegue) {
+        print("Unwinded to Task View")
+    }
+    
+
+
 
     /* We're making the  cells static
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

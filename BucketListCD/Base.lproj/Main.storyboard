@@ -144,6 +144,66 @@
             </objects>
             <point key="canvasLocation" x="2875" y="-126"/>
         </scene>
+        <!--Location Search-->
+        <scene sceneID="AcQ-j5-Ln9">
+            <objects>
+                <viewController title="Location Search" id="osa-vS-HMm" customClass="LocationSearchViewController" customModule="BucketListCD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6fS-an-61u"/>
+                        <viewControllerLayoutGuide type="bottom" id="AUB-s9-WFp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6EA-65-ulm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search for location" translatesAutoresizingMaskIntoConstraints="NO" id="UmG-he-aXW">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="g71-Ik-wNl">
+                                <rect key="frame" x="0.0" y="108" width="600" height="448"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g71-Ik-wNl" firstAttribute="leading" secondItem="UmG-he-aXW" secondAttribute="leading" id="5ei-zw-qnN"/>
+                            <constraint firstItem="g71-Ik-wNl" firstAttribute="top" secondItem="UmG-he-aXW" secondAttribute="bottom" id="Cm4-Ye-gSf"/>
+                            <constraint firstItem="UmG-he-aXW" firstAttribute="top" secondItem="6fS-an-61u" secondAttribute="bottom" id="H72-lB-kcn"/>
+                            <constraint firstItem="g71-Ik-wNl" firstAttribute="bottom" secondItem="AUB-s9-WFp" secondAttribute="top" id="b7h-LE-198"/>
+                            <constraint firstItem="UmG-he-aXW" firstAttribute="leading" secondItem="6EA-65-ulm" secondAttribute="leading" id="izX-83-ken"/>
+                            <constraint firstAttribute="trailing" secondItem="UmG-he-aXW" secondAttribute="trailing" id="tOe-bw-WpZ"/>
+                            <constraint firstItem="g71-Ik-wNl" firstAttribute="trailing" secondItem="UmG-he-aXW" secondAttribute="trailing" id="y3G-5L-Eas"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Location Search" id="Mq2-LM-QME">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="Aug-QX-p1Z">
+                            <connections>
+                                <segue destination="igo-Ls-Tja" kind="unwind" identifier="unwindToTaskView" unwindAction="unwindToTaskView:" id="YOl-Hw-7wA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="g71-Ik-wNl" id="X6U-FT-JPf"/>
+                        <outlet property="saveButton" destination="Aug-QX-p1Z" id="egF-QZ-ymh"/>
+                        <outlet property="searchBar" destination="UmG-he-aXW" id="Nsa-1C-JFe"/>
+                        <outlet property="searchDisplayController" destination="xCO-t0-gzd" id="crk-bc-MMD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gab-DO-nO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="igo-Ls-Tja" userLabel="Exit" sceneMemberID="exit"/>
+                <searchDisplayController id="xCO-t0-gzd">
+                    <connections>
+                        <outlet property="delegate" destination="osa-vS-HMm" id="kM8-6W-0Os"/>
+                        <outlet property="searchContentsController" destination="osa-vS-HMm" id="Wsq-GP-kN6"/>
+                        <outlet property="searchResultsDataSource" destination="osa-vS-HMm" id="aau-CC-xZ5"/>
+                        <outlet property="searchResultsDelegate" destination="osa-vS-HMm" id="FLH-AP-ove"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2889" y="648"/>
+        </scene>
         <!--Navigate to Home-->
         <scene sceneID="oLF-wx-1Wo">
             <objects>
@@ -184,7 +244,7 @@
         <scene sceneID="6jk-LT-Nv4">
             <objects>
                 <tableViewController title="Task Detail" id="vmN-ze-PnX" customClass="TaskTableViewController" customModule="BucketListCD" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="15" sectionFooterHeight="18" id="4EY-T3-hZn">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="15" sectionFooterHeight="18" id="4EY-T3-hZn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -232,7 +292,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Status" id="cBC-iD-bLy">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="nel-2C-5CF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StatusCell" rowHeight="60" id="nel-2C-5CF">
                                         <rect key="frame" x="0.0" y="315" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nel-2C-5CF" id="8db-7X-Bio">
@@ -266,7 +326,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Location" id="TIx-AC-Av5">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="w8z-RT-O5o" detailTextLabel="TiL-Ch-jhZ" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="ZST-sg-F0c">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LocationSearchCell" textLabel="w8z-RT-O5o" detailTextLabel="TiL-Ch-jhZ" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="ZST-sg-F0c">
                                         <rect key="frame" x="0.0" y="426" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZST-sg-F0c" id="fho-Cu-XTJ">
@@ -289,8 +349,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="osa-vS-HMm" kind="show" identifier="ToLocationSearch" id="zHf-2R-BWT"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="300" id="Cdm-jN-kZ9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationMapCell" rowHeight="300" id="Cdm-jN-kZ9">
                                         <rect key="frame" x="0.0" y="486" width="600" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cdm-jN-kZ9" id="dmF-sV-abY">
@@ -340,6 +403,8 @@
                     </tableView>
                     <connections>
                         <outlet property="descriptionTextField" destination="Bb5-up-bsv" id="92o-Gl-ixt"/>
+                        <outlet property="locationLabel" destination="TiL-Ch-jhZ" id="9Js-DQ-07o"/>
+                        <outlet property="mapView" destination="b1S-di-MTI" id="JGh-Vc-b6q"/>
                         <outlet property="statusButton" destination="3px-Du-pnA" id="LAy-LH-6pl"/>
                     </connections>
                 </tableViewController>
