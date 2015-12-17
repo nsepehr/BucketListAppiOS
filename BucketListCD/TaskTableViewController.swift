@@ -10,7 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
-let toLocationSearch = "ToLocationSearch"
+private let toLocationSearch = "ToLocationSearch"
+private let toPictureGallery = "ToPhotoGallery"
 
 enum TaskTableCells: String {
     case About, Status, Location, Memories
@@ -152,6 +153,10 @@ class TaskTableViewController: UITableViewController, CLLocationManagerDelegate,
             tvc.taskEntity = self.taskEntity
             tvc.bucket = self.bucket
             tvc.delegate = self
+        } else if segue.identifier == toPictureGallery {
+            let tvc = segue.destinationViewController as! PhotoGalleryCollectionViewController
+            tvc.taskEntity = self.taskEntity
+            tvc.bucket = self.bucket
         }
     }
     
