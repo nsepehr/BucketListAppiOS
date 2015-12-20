@@ -41,6 +41,40 @@ class BucketList<T: TaskEntity>: MyData<T> {
     }
     
 
+    func moveObjectAtIndex(fromIndex: NSIndexPath, toIndex: NSIndexPath) {
+        let from = fromIndex.row
+        let to   = toIndex.row
+        if from == to {
+            return
+        }
+        // Get the entity, remove it from its old position 
+        //   and add it to its new position
+        let toDoEntity = self.entityList[from]
+        self.entityList.removeAtIndex(from)
+        self.entityList.insert(toDoEntity, atIndex: to)
+        
+        // Set the new order of the object
+        var lower = 0.0
+        var higher = 0.0
+        
+        // Check for an item before it
+        if to > 0 {
+            lower = Double(self.entityList[to-1].displayOrder!)
+        } else {
+            lower = Double(self.entityList[1].displayOrder!) - 2.0
+        }
+        
+        // Check for an item after it
+        if to < self.entityList.count - 1 {
+            higher = Double(self.entityList[to+1].displayOrder!)
+        } else {
+            higher = Double(self.entityList[to-1].displayOrder!) + 2.0
+        }
+        
+        // Add the upper and lower, divide by two to derive the new order
+        let newOrder = (lower + higher) / 2.0
+        toDoEntity.displayOrder = newOrder
+    }
     
     func addImageForEntity(entity: TaskEntity, image: UIImage) {
         // Get the image data and create the image file at the app document directory
