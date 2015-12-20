@@ -40,6 +40,8 @@ class BucketList<T: TaskEntity>: MyData<T> {
         return task
     }
     
+
+    
     func addImageForEntity(entity: TaskEntity, image: UIImage) {
         // Get the image data and create the image file at the app document directory
         let ext: String = "png"

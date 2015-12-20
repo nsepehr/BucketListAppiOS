@@ -100,7 +100,7 @@
                                     <constraint firstAttribute="height" constant="45" id="05m-54-sHg"/>
                                     <constraint firstAttribute="width" constant="262" id="Qk6-Ut-xge"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -113,7 +113,8 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.90396200235139756" blue="0.51377352735947945" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="0.89954377689999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="CBc-aq-tHv" firstAttribute="top" secondItem="esA-e9-rgI" secondAttribute="bottom" constant="150" id="G9F-ie-hTv"/>
                             <constraint firstItem="tIk-xn-GzZ" firstAttribute="centerX" secondItem="CBc-aq-tHv" secondAttribute="centerX" id="QA9-qj-8Rp"/>
@@ -212,6 +213,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tGB-3M-EuX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.99607843137254903" green="0.96470588235294119" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="14"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -230,6 +235,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o2H-hu-Dqc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.97585882260268131" blue="0.96074943354128228" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="14"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -270,7 +279,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Help me!! Give me some description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bb5-up-bsv">
                                                     <rect key="frame" x="8" y="46" width="584" height="95"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="0.99607843137254903" green="0.89411764705882357" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="95" id="29B-6p-hLK"/>
                                                     </constraints>
@@ -321,6 +330,7 @@
                                                 <constraint firstItem="3px-Du-pnA" firstAttribute="leading" secondItem="ZJU-zK-e4q" secondAttribute="trailing" constant="48" id="vbe-so-AWI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

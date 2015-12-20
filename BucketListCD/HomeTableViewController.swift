@@ -26,8 +26,8 @@ class HomeTableViewController: UITableViewController, HomeTableDelegate {
     }
     
     // Image
-    let defaultTaskImage = UIImage(named: "defaultTaskImage")
-    let completedTaskImage = UIImage(named: "completedTasksImage")
+    let defaultTaskImage = UIImage(named: "DefaultTaskImage")
+    let completedTaskImage = UIImage(named: "CompletedTasksImage")
     
 
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class HomeTableViewController: UITableViewController, HomeTableDelegate {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +73,26 @@ class HomeTableViewController: UITableViewController, HomeTableDelegate {
         return cell
     }
     
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return NO if you do not want the specified item to be editable.
+        return true
+    }
+    
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // We must only remove the table cell when we know we could remove it from the data
+            let taskToDelete: TaskEntity = self.bucket.entityList[indexPath.row]
+            self.bucket.deleteEntity(taskToDelete)
+            self.bucket.getAllEntitiesByDisplayOrder()
+            // Delete the row from the data source
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+
 
     // MARK: - Navigation
 
