@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CE688111C2915400088E31D /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE688101C2915400088E31D /* DataHandler.swift */; };
 		D35AFBBC1C16C69F0014A7FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35AFBBB1C16C69F0014A7FE /* AppDelegate.swift */; };
 		D35AFBC11C16C69F0014A7FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35AFBBF1C16C69F0014A7FE /* Main.storyboard */; };
 		D35AFBC41C16C69F0014A7FE /* BucketListCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D35AFBC21C16C69F0014A7FE /* BucketListCD.xcdatamodeld */; };
@@ -14,7 +15,6 @@
 		D35AFBC91C16C69F0014A7FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35AFBC71C16C69F0014A7FE /* LaunchScreen.storyboard */; };
 		D35AFBD41C16C69F0014A7FE /* BucketListCDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35AFBD31C16C69F0014A7FE /* BucketListCDTests.swift */; };
 		D35AFBDF1C16C69F0014A7FE /* BucketListCDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35AFBDE1C16C69F0014A7FE /* BucketListCDUITests.swift */; };
-		D35AFBEE1C16C74B0014A7FE /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35AFBED1C16C74B0014A7FE /* DataHandler.swift */; };
 		D35AFBF01C17FD4D0014A7FE /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35AFBEF1C17FD4D0014A7FE /* HomeTableViewController.swift */; };
 		D35AFBF21C17FDC20014A7FE /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35AFBF11C17FDC20014A7FE /* MyData.swift */; };
 		D35AFC121C1890820014A7FE /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35AFC111C1890820014A7FE /* AddTaskViewController.swift */; };
@@ -48,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3CE688101C2915400088E31D /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = SOURCE_ROOT; };
 		D35AFBB81C16C69F0014A7FE /* BucketListCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketListCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35AFBBB1C16C69F0014A7FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D35AFBC01C16C69F0014A7FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		D35AFBDA1C16C69F0014A7FE /* BucketListCDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BucketListCDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35AFBDE1C16C69F0014A7FE /* BucketListCDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListCDUITests.swift; sourceTree = "<group>"; };
 		D35AFBE01C16C69F0014A7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D35AFBED1C16C74B0014A7FE /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataHandler.swift; path = ../../../DataHandler.swift; sourceTree = "<group>"; };
 		D35AFBEF1C17FD4D0014A7FE /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		D35AFBF11C17FDC20014A7FE /* MyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
 		D35AFC111C1890820014A7FE /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 				D35AFBC21C16C69F0014A7FE /* BucketListCD.xcdatamodeld */,
 				D35AFC211C1928B60014A7FE /* TaskEntity+CoreDataProperties.swift */,
 				D35AFC221C1928B60014A7FE /* TaskEntity.swift */,
-				D35AFBED1C16C74B0014A7FE /* DataHandler.swift */,
+				3CE688101C2915400088E31D /* DataHandler.swift */,
 				D35AFBF11C17FDC20014A7FE /* MyData.swift */,
 				D35AFC1B1C1924180014A7FE /* BucketList.swift */,
 			);
@@ -244,6 +244,7 @@
 				TargetAttributes = {
 					D35AFBB71C16C69F0014A7FE = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = G87T54MP99;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -316,7 +317,7 @@
 				D35AFBF01C17FD4D0014A7FE /* HomeTableViewController.swift in Sources */,
 				D35AFC231C1928B60014A7FE /* TaskEntity+CoreDataProperties.swift in Sources */,
 				D35AFC1C1C1924180014A7FE /* BucketList.swift in Sources */,
-				D35AFBEE1C16C74B0014A7FE /* DataHandler.swift in Sources */,
+				3CE688111C2915400088E31D /* DataHandler.swift in Sources */,
 				D35AFC341C1F2DCA0014A7FE /* FullPictureViewController.swift in Sources */,
 				D35AFC281C1934B20014A7FE /* HomeTableViewCell.swift in Sources */,
 				D35AFBC41C16C69F0014A7FE /* BucketListCD.xcdatamodeld in Sources */,
@@ -469,10 +470,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BucketListCD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nimasepehr.BucketListCD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -481,10 +485,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BucketListCD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nimasepehr.BucketListCD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
