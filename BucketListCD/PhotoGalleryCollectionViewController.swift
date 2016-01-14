@@ -25,6 +25,9 @@ class PhotoGalleryCollectionViewController: UICollectionViewController, UICollec
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // The Nav bar info
+        self.navigationItem.prompt = self.taskEntity.name
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -128,6 +131,8 @@ class PhotoGalleryCollectionViewController: UICollectionViewController, UICollec
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier(fullViewSegue, sender: indexPath)
     }
+    
+
     
     // MARK: - Navigation
     

@@ -41,6 +41,9 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate,
         
         searchBar.delegate = self
         
+        // The Nav bar info
+        self.navigationItem.prompt = self.taskEntity.name
+        
         let myLatitude: Double? = taskEntity.locationLatitude
         let myLongitude: Double? = taskEntity.locationLongitude
         if myLatitude != 0 && myLongitude != 0 {

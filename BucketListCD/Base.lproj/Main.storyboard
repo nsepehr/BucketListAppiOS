@@ -248,10 +248,10 @@
             </objects>
             <point key="canvasLocation" x="2063" y="-126"/>
         </scene>
-        <!--Task Detail-->
+        <!--Bucket Detail-->
         <scene sceneID="6jk-LT-Nv4">
             <objects>
-                <tableViewController title="Task Detail" id="vmN-ze-PnX" customClass="TaskTableViewController" customModule="BucketListCD" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Bucket Detail" id="vmN-ze-PnX" customClass="TaskTableViewController" customModule="BucketListCD" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="15" sectionFooterHeight="18" id="4EY-T3-hZn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,27 +431,33 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GBI-xW-Rvu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="bJh-Cv-tun">
+                        <color key="backgroundColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="bJh-Cv-tun">
                             <size key="itemSize" width="100" height="100"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="PhotoGalleryCell" id="sQx-Hu-q2P" customClass="PhotoGalleryCollectionViewCell" customModule="BucketListCD" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="100" height="100"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="PhotoGalleryCell" id="sQx-Hu-q2P" customClass="PhotoGalleryCollectionViewCell" customModule="BucketListCD" customModuleProvider="target">
+                                <rect key="frame" x="2" y="66" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8eQ-JH-yzS">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8eQ-JH-yzS">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8eQ-JH-yzS" secondAttribute="bottom" id="9t3-rm-UI3"/>
+                                    <constraint firstAttribute="trailing" secondItem="8eQ-JH-yzS" secondAttribute="trailing" id="F33-av-h5l"/>
+                                    <constraint firstItem="8eQ-JH-yzS" firstAttribute="top" secondItem="sQx-Hu-q2P" secondAttribute="top" id="V8d-Wr-Ve7"/>
+                                    <constraint firstItem="8eQ-JH-yzS" firstAttribute="leading" secondItem="sQx-Hu-q2P" secondAttribute="leading" id="euC-el-jCY"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="8eQ-JH-yzS" id="MKm-9g-hgW"/>
                                 </connections>

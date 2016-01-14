@@ -38,6 +38,9 @@ class FullPictureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // The Nav bar info
+        self.navigationItem.prompt = self.taskEntity.name
+        
         // Do any additional setup after loading the view.
     }
     
